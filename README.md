@@ -1,4 +1,5 @@
 # ZendSkeletonApplication
 
-Простой каркас Zend Framework 2 приложения на основе 
+РџСЂРѕСЃС‚РѕР№ РєР°СЂРєР°СЃ Zend Framework 2 РїСЂРёР»РѕР¶РµРЅРёСЏ РЅР° РѕСЃРЅРѕРІРµ 
 [zendframework/ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication).
+

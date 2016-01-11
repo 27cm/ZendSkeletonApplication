@@ -1,39 +1,39 @@
 <?php
 
 /**
- * @var string Ïóòü ê êîðíåâîìó êàòàëîãó ñàéòà.
+ * @var string ÐŸÑƒÑ‚ÑŒ Ðº ÐºÐ¾Ñ€Ð½ÐµÐ²Ð¾Ð¼Ñƒ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ñƒ ÑÐ°Ð¹Ñ‚Ð°.
  */
 define('ROOT', dirname(__DIR__));
 
 /**
- * @var string Ïóòü ê êàòàëîãó "public" ñàéòà.
+ * @var string ÐŸÑƒÑ‚ÑŒ Ðº ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ñƒ "public" ÑÐ°Ð¹Ñ‚Ð°.
  */
 define('DIR_PUBLIC', dirname(__FILE__));
 
 /**
- * @var string Îêðóæåíèå äëÿ ðàçðàáîòêè (development).
+ * @var string ÐžÐºÑ€ÑƒÐ¶ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ñ€Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸ (development).
  */
 define('ENV_DEV', 'dev');
 
 /**
- * @var string Ïðîäóêòîâîå îêðóæåíèå (production).
+ * @var string ÐŸÑ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð²Ð¾Ðµ Ð¾ÐºÑ€ÑƒÐ¶ÐµÐ½Ð¸Ðµ (production).
  */
 define('ENV_PROD', 'prod');
 
 /**
- * @var string Ðàçäåëèòåëü äèðåêòîðèé. Äëÿ Windows - "\", äëÿ Linux è îñòàëüíûõ — "/".
+ * @var string Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ Ð´Ð¸Ñ€ÐµÐºÑ‚Ð¾Ñ€Ð¸Ð¹. Ð”Ð»Ñ Windows - "\", Ð´Ð»Ñ Linux Ð¸ Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ñ… â€” "/".
  */
 define('DS', DIRECTORY_SEPARATOR);
 
 /**
- * @var string Ðàçäåëèòåëü ïóòè ê ôàéëó. Äëÿ Windows - ";", äëÿ Linux è îñòàëüíûõ — ":".
+ * @var string Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ Ð¿ÑƒÑ‚Ð¸ Ðº Ñ„Ð°Ð¹Ð»Ñƒ. Ð”Ð»Ñ Windows - ";", Ð´Ð»Ñ Linux Ð¸ Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ñ… â€” ":".
  */
 define('PS', PATH_SEPARATOR);
 
-// Óñòàíîâêà êîðíÿ ñàéòà â êà÷åñòâå òåêóùåãî êàòàëîãà
+// Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° ÐºÐ¾Ñ€Ð½Ñ ÑÐ°Ð¹Ñ‚Ð° Ð² ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ðµ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð°
 chdir(ROOT);
 
-// Ïåðåíàïðàâëåíèå çàïðîñîâ ñòàòè÷åñêèõ ôàéëîâ âñòðîåííîìó âåá-ñåðâåðó PHP
+// ÐŸÐµÑ€ÐµÐ½Ð°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ¾Ð² ÑÑ‚Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ñ… Ñ„Ð°Ð¹Ð»Ð¾Ð² Ð²ÑÑ‚Ñ€Ð¾ÐµÐ½Ð½Ð¾Ð¼Ñƒ Ð²ÐµÐ±-ÑÐµÑ€Ð²ÐµÑ€Ñƒ PHP
 if (php_sapi_name() === 'cli-server') {
     $path = realpath(__DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
     if (__FILE__ !== $path && is_file($path)) {
@@ -48,10 +48,10 @@ $config = include 'config/application.php';
 
 $env = getenv('APP_ENV');
 if (empty($env) || !in_array($env, [ENV_DEV, ENV_PROD])) {
-    throw new Exception('Íåèçâåñòíàÿ ñðåäà');
+    throw new Exception('ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð°Ñ ÑÑ€ÐµÐ´Ð°');
 }
 
-// Âêëþ÷åíèå ïàíåëè Zend Developer Tools
+// Ð’ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ð¿Ð°Ð½ÐµÐ»Ð¸ Zend Developer Tools
 if (ENV_DEV == $env && isset($_COOKIE['profiler']) && $_COOKIE['profiler']) {
     $config['modules'][] = 'BjyProfiler';
     $config['modules'][] = 'ZendDeveloperTools';

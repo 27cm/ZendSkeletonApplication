@@ -14,17 +14,17 @@ use Zend\Mvc\MvcEvent;
 use Zend\View\HelperPluginManager;
 
 /**
- * Мудаль с примерами расширений приложения.
+ * Модуль с примерами расширений приложения.
  */
 class Module implements AutoloaderProviderInterface, BootstrapListenerInterface, ConfigProviderInterface, InitProviderInterface
 {
     /**
-     * Каталог модуля.
+     * @const string Каталог модуля.
      */
     const DIR = __DIR__;
 
     /**
-     * Пространство имён модуля.
+     * @const string Пространство имён модуля.
      */
     const NS = __NAMESPACE__;
 

@@ -1,22 +1,36 @@
 <?php
 
-namespace Application;
+namespace Console;
 
+use Zend\Console\Adapter\AdapterInterface;
 use Zend\EventManager\EventInterface;
 use Zend\Loader;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\ConsoleBannerProviderInterface;
+use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
 use Zend\ModuleManager\Feature\InitProviderInterface;
 use Zend\ModuleManager\ModuleManagerInterface;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
 /**
- * Основной модуль приложения.
+ * Модуль CLI приложения.
  */
-class Module implements AutoloaderProviderInterface, BootstrapListenerInterface, ConfigProviderInterface, InitProviderInterface
+class Module implements
+    AutoloaderProviderInterface,
+    BootstrapListenerInterface,
+    ConfigProviderInterface,
+    ConsoleBannerProviderInterface,
+    ConsoleUsageProviderInterface,
+    InitProviderInterface
 {
+    /**
+     * @const string Название CLI модуля.
+     */
+    const NAME = 'ZendSkeletonApplication - Zend Framework 2 command line module example';
+
     /**
      * @const string Каталог модуля.
      */
@@ -69,6 +83,25 @@ class Module implements AutoloaderProviderInterface, BootstrapListenerInterface,
                     static::NS => static::DIR . '/src/' . static::NS,
                 ],
             ],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getConsoleBanner(AdapterInterface $console)
+    {
+        return self::NAME;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getConsoleUsage(AdapterInterface $console)
+    {
+        return [
+            'Basic information:',
+            'version | --version' => 'display current Zend Framework version',
         ];
     }
 }

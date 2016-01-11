@@ -104,14 +104,4 @@ return [
             Module::DIR . '/view',
         ],
     ],
-
-    /**
-     * Консоль.
-     */
-    'console' => [
-        'router' => [
-            'routes' => [
-            ],
-        ],
-    ],
 ];

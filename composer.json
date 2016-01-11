@@ -18,10 +18,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/Application"
+            "Application\\": "module/Application/src/Application",
+            "Console\\": "module/Console/src/Console",
+            "Examples\\": "module/Examples/src/Examples"
         },
         "classmap": [
-            "module/Application/Module.php"
+            "module/Application/Module.php",
+            "module/Console/Module.php",
+            "module/Examples/Module.php"
         ],
         "files": [
             "module/functions.php"

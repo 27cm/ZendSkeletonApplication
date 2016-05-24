@@ -1,7 +1,23 @@
 <?php
 
-namespace Application;
+namespace Examples;
 
 use Zend;
 
-return [];
+return [
+    'di' => [
+        'definition' => [
+            # 'compiler' => [],
+            # 'runtime' => [],
+            'class' => [
+                #'instantiator' => '',
+                #'supertypes'   => [],
+                Di\Foo::class => [
+                    'setBar' => [
+                        'bar' => ['required' => true],
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
